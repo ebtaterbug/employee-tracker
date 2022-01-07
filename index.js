@@ -16,6 +16,7 @@ const db = mysql.createConnection(
       console.log('Connected to database.')
 );
 
+
 function questions() {
 inquirer
     .prompt([{
@@ -230,7 +231,6 @@ function addEmployee() {
 								},
                                 function (err, res) {
                                     if (err) throw err;
-                                    console.log(`${answer.first_name} ${answer.last_name} added as a new employee.`),
                                     questions()
                                 }
 							);
@@ -259,13 +259,13 @@ function updateEmployee() {
                     {
                         name: "employee",
                         type: "list",
-                        message: "Choose the employee whose role is to be updated:",
+                        message: "Select the employee to update",
                         choices: employees,
                     },
                     {
                         name: "role",
                         type: "list",
-                        message: "Choose employee's job position",
+                        message: "Select employee's job position",
                         choices: roles,
                     },
                 ]).then((response) => {
